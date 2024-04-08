@@ -5,7 +5,7 @@ name: pipeline-1
 
 platform:
   os: linux
-  arch: amd64
+  arch: arm64
   
 steps:
 - name: step-1
@@ -26,7 +26,7 @@ name: pipeline-2
 
 platform:
   os: linux
-  arch: amd64
+  arch: arm64
 
 steps:
   - name: step-1
@@ -50,7 +50,7 @@ name: pipeline-3
 
 platform:
   os: linux
-  arch: amd64
+  arch: arm64
 
 steps:
   - name: step-1
