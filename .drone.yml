@@ -5,13 +5,19 @@ name: pipeline-1
 
 platform:
   os: linux
-  arch: arm64
+  arch: amd64
   
 steps:
 - name: step-1
   image: alpine
   commands:
   - echo "Hello from pipeline-1"
+  
+trigger:
+  ref:
+    - refs/heads/main
+    - refs/tags/**
+    - refs/pull/**  
   
 
 ---
@@ -20,13 +26,19 @@ name: pipeline-2
 
 platform:
   os: linux
-  arch: arm64
+  arch: amd64
 
 steps:
   - name: step-1
     image: alpine
     commands:
       - echo "Hello from pipeline-2"
+
+trigger:
+  ref:
+    - refs/heads/main
+    - refs/tags/**
+    - refs/pull/**       
 
 depends_on:
   - pipeline-1
@@ -38,7 +50,7 @@ name: pipeline-3
 
 platform:
   os: linux
-  arch: arm64
+  arch: amd64
 
 steps:
   - name: step-1
@@ -46,9 +58,17 @@ steps:
     commands:
       - echo "Hello from pipeline-3"
 
+trigger:
+  ref:
+    - refs/heads/main
+    - refs/tags/**
+    - refs/pull/**       
+
 depends_on:
   - pipeline-1     
 
 ---
 kind: signature
 hmac: F10E2821BBBEA527EA02200352313BC059445190
+
+...
