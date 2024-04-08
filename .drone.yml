@@ -20,76 +20,76 @@ trigger:
     - refs/pull/**  
   
 
----
-kind: pipeline
-name: pipeline-2
+# ---
+# kind: pipeline
+# name: pipeline-2
 
-platform:
-  os: linux
-  arch: arm64
+# platform:
+#   os: linux
+#   arch: arm64
 
-steps:
-  - name: step-1
-    image: alpine
-    commands:
-      - echo "Hello from pipeline-2"
+# steps:
+#   - name: step-1
+#     image: alpine
+#     commands:
+#       - echo "Hello from pipeline-2"
 
-trigger:
-  ref:
-    - refs/heads/main
-    - refs/tags/**
-    - refs/pull/**       
+# trigger:
+#   ref:
+#     - refs/heads/main
+#     - refs/tags/**
+#     - refs/pull/**       
 
-depends_on:
-  - pipeline-1
+# depends_on:
+#   - pipeline-1
       
 
----
-kind: pipeline
-name: pipeline-3
+# ---
+# kind: pipeline
+# name: pipeline-3
 
-platform:
-  os: linux
-  arch: arm64
+# platform:
+#   os: linux
+#   arch: arm64
 
-steps:
-  - name: step-1
-    image: alpine
-    commands:
-      - echo "Hello from pipeline-3"
+# steps:
+#   - name: step-1
+#     image: alpine
+#     commands:
+#       - echo "Hello from pipeline-3"
 
-trigger:
-  ref:
-    - refs/heads/main
-    - refs/tags/**
-    - refs/pull/**       
+# trigger:
+#   ref:
+#     - refs/heads/main
+#     - refs/tags/**
+#     - refs/pull/**       
 
-depends_on:
-  - pipeline-1 
+# depends_on:
+#   - pipeline-1 
 
 
----
-kind: pipeline
-name: pipeline-4
+# ---
+# kind: pipeline
+# name: pipeline-4
 
-platform:
-  os: linux
-  arch: arm64
+# platform:
+#   os: linux
+#   arch: arm64
 
-steps:
-  - name: step-1
-    image: alpine
-    commands:
-      - echo "Hello from pipeline-4"
+# steps:
+#   - name: step-1
+#     image: alpine
+#     commands:
+#       - echo "Hello from pipeline-4"
 
-trigger:
-  ref:
-    - refs/heads/main
-    - refs/tags/**
-    - refs/pull/**       
+# trigger:
+#   ref:
+#     - refs/heads/main
+#     - refs/tags/**
+#     - refs/pull/**       
 
-depends_on:
-  - pipeline-1    
+# depends_on:
+#   - pipeline-1    
   
 
 ---
