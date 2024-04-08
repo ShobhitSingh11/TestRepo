@@ -1,19 +1,47 @@
 ---
 kind: pipeline
-type: docker
-name: default
+# type: docker
+name: pipeline-1
 
 platform:
   os: linux
   arch: arm64
   
 steps:
-- name: another
+- name: step-1
   image: alpine
   commands:
-  - echo "Hellos"
-  - sleep 2
-  - echo "Done"
+  - echo "Hello from pipeline-1"
+  
+
+---
+kind: pipeline
+name: pipeline-2
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: step-1
+    image: alpine
+    commands:
+      - echo "Hello from pipeline-2"
+      
+
+---
+kind: pipeline
+name: pipeline-3
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: step-1
+    image: alpine
+    commands:
+      - echo "Hello from pipeline-3"
 
 ---
 kind: signature
