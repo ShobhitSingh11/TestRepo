@@ -27,6 +27,9 @@ steps:
     image: alpine
     commands:
       - echo "Hello from pipeline-2"
+
+depends_on:
+  - pipeline-1
       
 
 ---
@@ -42,6 +45,9 @@ steps:
     image: alpine
     commands:
       - echo "Hello from pipeline-3"
+
+depends_on:
+  - pipeline-1     
 
 ---
 kind: signature
