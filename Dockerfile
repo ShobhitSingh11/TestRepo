@@ -1,24 +1,29 @@
+
 # Use an official base image
-# Use a temporary builder image for building the application
-FROM golang:1.17 AS builder
+# # FROM alpine
+# FROM ubuntu:latest
 
-# Set the working directory inside the container
-WORKDIR /app
+# LABEL com.datarobot.repo-sha=abccdef
+# Set the working directory
+# WORKDIR /app
 
-# Copy the source code into the container
-COPY . .
+# Copy the current directory contents into the container at /app
+# COPY . /app
 
-# Build the Go application
-RUN go build -o myapp .
+# # Run a command
+# CMD ["echo", "Hello, Docker!"]
 
-# Use a lightweight base image for the final image
-FROM alpine:latest
+# Use the 'moby/buildkit:master-rootless' base image
+FROM moby/buildkit:master-rootless
 
-# Set the working directory inside the container
-WORKDIR /app
 
-# Copy the binary from the builder stage into the final image
-COPY --from=builder /app/myapp .
+# Set the working directory to /home/gradle/src
+WORKDIR /home/gradle/src
 
-# Command to run the application
-CMD ["./myapp"]
+# Copy the current directory contents into the container at /home/gradle/src
+COPY . /home/gradle/src/
+
+# Run the command to install OpenJDK 17 using apk
+RUN apk --no-cache add openjdk17 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+
+RUN docker image inspect moby/buildkit:master-rootless
