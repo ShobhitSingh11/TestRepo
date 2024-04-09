@@ -11,3 +11,5 @@ RUN apk add --no-cache \
 
 # Set the entry point
 CMD ["echo", "Docker image built successfully!"]
+
+RUN docker build --label com.datarobot.repo-name=build-service -t your_image_name:0.0.1 .
