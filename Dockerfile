@@ -1,17 +1,24 @@
 # Use an official base image
-FROM ubuntu:latest
+# Use a temporary builder image for building the application
+FROM golang:1.17 AS builder
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the source code into the container
+COPY . .
 
-# Install curl and wget
-RUN apt-get update && apt-get install -y curl wget
+# Build the Go application
+RUN go build -o myapp .
 
-# Run a command
-CMD ["echo", "Hello, Docker!"]
+# Use a lightweight base image for the final image
+FROM alpine:latest
 
-# Build the image
-RUN echo "Building the image..."
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the binary from the builder stage into the final image
+COPY --from=builder /app/myapp .
+
+# Command to run the application
+CMD ["./myapp"]
