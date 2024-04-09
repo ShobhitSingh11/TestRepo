@@ -2,6 +2,7 @@
 # FROM alpine
 FROM ubuntu:latest
 
+LABEL com.datarobot.repo-sha=abccdef
 # Set the working directory
 WORKDIR /app
 
