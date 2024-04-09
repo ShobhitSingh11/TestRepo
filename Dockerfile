@@ -1,16 +1,18 @@
-FROM ubuntu:latest
+# Use an official base image
+FROM alpine:latest
 
-# Set the working directory
-WORKDIR /app
+# Install Docker in the container (this is just a hypothetical example)
+RUN apk add --no-cache docker
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy a Dockerfile into the container
+COPY Dockerfile-to-build /tmp/Dockerfile-to-build
 
-# Install curl and wget
-RUN apt-get update && apt-get install -y curl wget
+# Build a new Docker image using the copied Dockerfile
+RUN docker build -t my-custom-image /tmp/Dockerfile-to-build
 
-# Run a command
-CMD ["echo", "Hello, Docker!"]
+# Remove unnecessary files
+RUN rm -rf /tmp/Dockerfile-to-build
 
-# Build the image
-RUN echo "Building the image..."2
+# Set the entry point
+CMD ["echo", "Docker image built successfully!"]
+
