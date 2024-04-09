@@ -13,6 +13,4 @@ RUN apt-get update && apt-get install -y curl wget
 CMD ["echo", "Hello, Docker!"]
 
 # Build the image
-RUN echo "Building the image..."
-
-RUN docker image inspect ubuntu:latest
+RUN echo "Building the image..."2
