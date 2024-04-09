@@ -1,25 +1,17 @@
-# # Use an official base image
-# # FROM alpine
-# FROM ubuntu:latest
+# Use an official base image
+FROM ubuntu:latest
 
-# LABEL com.datarobot.repo-sha=abccdef
-# # Set the working directory
-# WORKDIR /app
+# Set the working directory
+WORKDIR /app
 
-# # Copy the current directory contents into the container at /app
-# COPY . /app
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# # Run a command
-# CMD ["echo", "Hello, Docker!"]
+# Install curl and wget
+RUN apt-get update && apt-get install -y curl wget
 
-# Use the 'moby/buildkit:master-rootless' base image
-FROM moby/buildkit:master-rootless
+# Run a command
+CMD ["echo", "Hello, Docker!"]
 
-# Set the working directory to /home/gradle/src
-WORKDIR /home/gradle/src
-
-# Copy the current directory contents into the container at /home/gradle/src
-COPY . /home/gradle/src/
-
-# Run the command to install OpenJDK 17 using apk
-RUN apk --no-cache add openjdk17 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+# Build the image
+RUN echo "Building the image..."
