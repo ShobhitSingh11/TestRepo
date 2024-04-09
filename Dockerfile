@@ -1,7 +1,7 @@
 # Use an official base image
 FROM alpine:latest
 
-USER myuser
+USER root
 # Install some packages using the apk package manager
 RUN apk add --no-cache \
     curl \
