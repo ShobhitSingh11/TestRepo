@@ -15,11 +15,11 @@ steps:
   
   resources:
     limits:
-      cpu: 1000m # 1000 milli CPUs
-      memory: 2Gi # 2 Gibibytes of memory
+      cpu: 1 # 1000 milli CPUs
+      memory: 2048 # 2 Gibibytes of memory
     requests:
-      cpu: 1000m
-      memory: 2Gi
+      cpu: 1
+      memory: 2048
 
 trigger:
   ref:
@@ -41,13 +41,14 @@ steps:
     image: alpine
     commands:
       - echo "Hellos from pipeline-2"
+
     resources:
       limits:
-        cpu: 1000m # 1000 milli CPUs
-        memory: 2Gi # 2 Gibibytes of memory
+        cpu: 1 # 1000 milli CPUs
+        memory: 2048 # 2 Gibibytes of memory
       requests:
-        cpu: 1000m
-        memory: 2Gi 
+        cpu: 1
+        memory: 2048
 
 trigger:
   ref:
@@ -75,11 +76,11 @@ steps:
 
     resources:
       limits:
-        cpu: 1000m # 1000 milli CPUs
-        memory: 2Gi # 2 Gibibytes of memory
+        cpu: 1 # 1000 milli CPUs
+        memory: 2048 # 2 Gibibytes of memory
       requests:
-        cpu: 1000m
-        memory: 2Gi 
+        cpu: 1
+        memory: 2048 
 
 trigger:
   ref:
@@ -107,11 +108,11 @@ steps:
 
     resources:
       limits:
-        cpu: 1000m # 1000 milli CPUs
-        memory: 2Gi # 2 Gibibytes of memory
+        cpu: 1 # 1000 milli CPUs
+        memory: 2048 # 2 Gibibytes of memory
       requests:
-        cpu: 1000m
-        memory: 2Gi  
+        cpu: 1
+        memory: 2048
 
 trigger:
   ref:
@@ -135,13 +136,14 @@ steps:
     image: alpine
     commands:
       - echo "Hello from pipeline-5"
+      
     resources:
       limits:
-        cpu: 1000m # 1000 milli CPUs
-        memory: 2Gi # 2 Gibibytes of memory
+        cpu: 1 # 1000 milli CPUs
+        memory: 2048 # 2 Gibibytes of memory
       requests:
-        cpu: 1000m
-        memory: 2Gi  
+        cpu: 1
+        memory: 2048 
 
 trigger:
   ref:
@@ -169,11 +171,11 @@ steps:
       
     resources:
       limits:
-        cpu: 1000m # 1000 milli CPUs
-        memory: 2Gi # 2 Gibibytes of memory
+        cpu: 1 # 1000 milli CPUs
+        memory: 2048 # 2 Gibibytes of memory
       requests:
-        cpu: 1000m
-        memory: 2Gi 
+        cpu: 1
+        memory: 2048
 
 trigger:
   ref:
