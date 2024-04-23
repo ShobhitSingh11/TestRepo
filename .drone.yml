@@ -56,10 +56,6 @@ trigger:
     - refs/tags/**
     - refs/pull/**       
 
-depends_on:
-  - pipeline-1
-
-
 ---
 kind: pipeline
 name: pipeline-3
@@ -87,10 +83,6 @@ trigger:
     - refs/heads/main
     - refs/tags/**
     - refs/pull/**       
-
-depends_on:
-  - pipeline-1 
-
 
 ---
 kind: pipeline
@@ -120,9 +112,6 @@ trigger:
     - refs/tags/**
     - refs/pull/**       
 
-depends_on:
-  - pipeline-1  
-
 ---
 kind: pipeline
 name: pipeline-5
@@ -151,10 +140,6 @@ trigger:
     - refs/tags/**
     - refs/pull/**       
 
-depends_on:
-  - pipeline-1  
-
-
 ---
 kind: pipeline
 name: pipeline-6
@@ -182,12 +167,4 @@ trigger:
     - refs/heads/main
     - refs/tags/**
     - refs/pull/**       
-
-depends_on:
-  - pipeline-1  
-
----
-kind: signature
-hmac: F10E2821BBBEA527EA02200352313BC059445189
-
 ...
