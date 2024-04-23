@@ -11,7 +11,7 @@ steps:
 - name: step-1
   image: alpine
   commands:
-  - echo "Hello from pipeline-1"
+  - echo "Hellos from pipeline-1"
   
   resources:
     limits:
