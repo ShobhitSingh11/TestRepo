@@ -1,12 +1,16 @@
 # Use an official base image
-# FROM alpine
-FROM ubuntu:latest
+# FROM alpine:latest
+FROM moby/buildkit:master-rootless
+USER root
+# Install some packages using the apk package manager
+# LABEL com.example.version=4.5
+RUN apk add --no-cache \
+    curl \
+    git \
+    && \
+    # Clean up cache to reduce image size
+    rm -rf /var/cache/apk/*
 
-# Set the working directory
-WORKDIR /app
+# Set the entry point
+CMD ["echo", "Docker image built successfully!"]
 
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# Run a command
-CMD ["echo", "Hello, Docker!"]
