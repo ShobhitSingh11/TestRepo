@@ -16,4 +16,4 @@ jobs:
         run: echo "Hello world"
 
       - name: Print Secret
-        run:  echo "My secret is ${{ secrets.CI12517 }}"
+        run:  echo "My secret is ${{ secrets.CI12516 }}"
