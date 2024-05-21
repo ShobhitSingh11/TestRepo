@@ -1,6 +1,6 @@
 # Use an official base image
-FROM alpine
-# FROM ubuntu:latest
+# FROM alpine
+FROM ubuntu:latest
 
 # Set the working directory
 # WORKDIR /app
