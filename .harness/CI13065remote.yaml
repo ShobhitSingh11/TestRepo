@@ -9,10 +9,7 @@ pipeline:
       codebase:
         connectorRef: ssaccountlevelconnector
         repoName: jhttp
-        build:
-          type: PR
-          spec:
-            number: <+trigger.prNumber>
+        build: <+input>
   stages:
     - stage:
         name: CI
