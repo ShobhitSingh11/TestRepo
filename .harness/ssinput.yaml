@@ -1,0 +1,14 @@
+inputSet:
+  name: ss-input
+  identifier: ssinput
+  orgIdentifier: default
+  projectIdentifier: ShobhitTesting
+  pipeline:
+    identifier: CI13065remote
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
