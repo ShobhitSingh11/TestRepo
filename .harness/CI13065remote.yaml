@@ -10,6 +10,8 @@ pipeline:
         connectorRef: ssaccountlevelconnector
         repoName: jhttp
         build: <+input>
+        depth: 100
+        prCloneStrategy: SourceBranch
   stages:
     - stage:
         name: CI
