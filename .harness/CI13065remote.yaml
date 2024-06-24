@@ -38,4 +38,6 @@ pipeline:
                     connectorRef: account.harnessImage
                     image: alpine
                     shell: Sh
-                    command: echo "hello"
+                    command: |-
+                      echo "hello"
+                      er3
