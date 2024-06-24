@@ -1,0 +1,14 @@
+inputSet:
+  name: ssst-input
+  identifier: ssstinput
+  orgIdentifier: default
+  projectIdentifier: ShobhitTesting
+  pipeline:
+    identifier: CI13065remote
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: "33"
