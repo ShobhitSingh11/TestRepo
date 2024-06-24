@@ -20,8 +20,6 @@ pipeline:
         type: CI
         spec:
           cloneCodebase: true
-          caching:
-            enabled: true
           infrastructure:
             type: KubernetesDirect
             spec:
