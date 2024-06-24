@@ -12,7 +12,7 @@ pipeline:
         build:
           type: PR
           spec:
-            number: "31"
+            number: "33"
   stages:
     - stage:
         name: CI
