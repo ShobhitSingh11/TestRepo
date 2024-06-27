@@ -8,7 +8,7 @@ pipeline:
     ci:
       codebase:
         connectorRef: org.CI11556
-        repoName: scm/har/akhil-scm.git
+        repoName: scm/har/naman-test
         build: <+input>
   stages:
     - stage:
