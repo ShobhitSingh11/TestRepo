@@ -11,7 +11,7 @@ steps:
 - name: another
   image: alpine
   commands:
-  - echo "Hello how r u."
+  - echo "Hello how r u. Womp womp"
   - sleep 2
   - echo "Done"
 
