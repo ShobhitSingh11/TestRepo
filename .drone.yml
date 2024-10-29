@@ -9,7 +9,7 @@ platform:
 
 
 steps:
-- name: RUN
+- name: Run
   image: alpine
   commands:
   - echo hello
