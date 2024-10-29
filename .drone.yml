@@ -15,7 +15,6 @@ steps:
       from_secret: TEST_SECRET
   commands:
     - echo hello
-    - echo "SAMPLE_KEY is set to: $SAMPLE_KEY"
 
 # - name: Check Secret
 #   image: alpine
