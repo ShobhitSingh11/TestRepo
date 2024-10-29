@@ -14,7 +14,7 @@ steps:
     TEST_ENVS:
       from_secret: TESTING
   commands:
-    - echo hello
+    -  echo "${{ secrets.TESTING }}"
 
 - name: Check Secret
   image: alpine
@@ -22,7 +22,7 @@ steps:
     TEST_ENVS:
       from_secret: TESTING
   commands:
-    - echo ${TEST_ENVS}
+    - echo hello
 
 
 # ---
