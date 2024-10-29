@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-name: test secret kubes
+name: test secret docker
 steps:  
 - commands:
   - echo 1
