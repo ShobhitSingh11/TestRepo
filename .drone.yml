@@ -22,7 +22,7 @@ steps:
     TEST_ENVS:
       from_secret: TESTING
   commands:
-    - echo $${TEST_ENVS}
+    - echo ${TEST_ENVS}
 
 
 # ---
