@@ -1,30 +1,35 @@
 ---
-
 kind: pipeline
-type: docker
 name: test secret docker
-steps:  
+steps:
 - commands:
   - echo 1
   environment:
-    SHOBHIT_ENV:
+    SAMPLE_KEY:
       from_secret: FOO
   image: node:18
   name: Install Dependencies
 - commands:
-  - echo $${SHOBHIT_ENV}
+  - echo $${SAMPLE_KEY}
   environment:
-    SHOBHIT_ENV:
+    SAMPLE_KEY:
       from_secret: FOO
   image: node:18
   name: Run Linting
 - commands:
-  - echo $${SHOBHIT_ENV}
+  - echo $${SAMPLE_KEY}
   environment:
-    SHOBHIT_ENV:
+    SAMPLE_KEY:
       from_secret: FOO
   image: node:18
   name: Run Unit Tests
+trigger:
+  branch:
+    exclude:
+    - main
+  event:
+  - push
+type: docker
 
 
 # ---
