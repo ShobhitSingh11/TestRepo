@@ -29,7 +29,7 @@ trigger:
     - main
   event:
   - push
-type: kubernetes
+type: docker
 
 
 # ---
