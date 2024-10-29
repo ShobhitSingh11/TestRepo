@@ -7,23 +7,25 @@ platform:
   os: linux
   arch: arm64
 
-
 steps:
 - name: Run
   image: alpine
+  environment:
+    SAMPLE_KEY:
+      from_secret: TEST_SECRET
   commands:
     - echo hello
-    environment:
-      SAMPLE_KEY:
-        from_secret: TEST_SECRET
-        
+    - echo "SAMPLE_KEY is set to: $SAMPLE_KEY"
+
 - name: Check Secret
   image: alpine
+  environment:
+    SAMPLE_KEY:
+      from_secret: TEST_SECRET
   commands:
-    - echo $${SAMPLE_KEY}
-    environment:
-      SAMPLE_KEY:
-        from_secret: TEST_SECRET
+    - echo "Checking SAMPLE_KEY..."
+    - if [ -z "$SAMPLE_KEY" ]; then echo "SAMPLE_KEY is not set"; else echo "SAMPLE_KEY is set to: $SAMPLE_KEY"; fi
+
 
 # ---
 # kind: pipeline
