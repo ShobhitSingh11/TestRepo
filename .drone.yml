@@ -12,7 +12,7 @@ steps:
   image: alpine
   environment:
     TEST_KUBES:
-      from_secret: FOO
+      from_secret: TESTING
   commands:
     -  echo "$${TEST_KUBES}"
 
