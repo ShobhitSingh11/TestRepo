@@ -22,7 +22,7 @@ steps:
     TEST_ENV:
       from_secret: FOO
   commands:
-    - echo $TEST_ENV
+    - echo "$TEST_ENV"
 
 
 # ---
