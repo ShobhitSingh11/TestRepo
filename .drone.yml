@@ -3,7 +3,8 @@ kind: pipeline
 name: test secret kubes
 steps:
 - name: Checkout code
-  uses: actions/checkout@v2
+  uses: actions/checkout@v3
+  
 - commands:
   - echo 1
   environment:
