@@ -1,5 +1,6 @@
 ---
 kind: pipeline
+type: docker
 name: test secret docker
 steps:  
 - commands:
@@ -23,13 +24,7 @@ steps:
       from_secret: FOO
   image: node:18
   name: Run Unit Tests
-trigger:
-  branch:
-    exclude:
-    - main
-  event:
-  - push
-type: docker
+
 
 # ---
 # kind: pipeline
