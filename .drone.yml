@@ -11,18 +11,10 @@ steps:
 - name: Run
   image: alpine
   environment:
-    TEST_KUBE:
+    TEST_KUBES:
       from_secret: FOO
   commands:
-    -  echo "${{ secrets.TESTING }}"
-
-- name: Check Secret
-  image: alpine
-  environment:
-    TEST_KUBE:
-      from_secret: FOO
-  commands:
-    - echo hello
+    -  echo "$${TEST_KUBES}"
 
 
 # ---
