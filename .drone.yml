@@ -6,21 +6,21 @@ steps:
   - echo 1
   environment:
     SHOBHIT_ENV:
-      from_secret: SHOBHIT_SEC
+      from_secret: FOO
   image: node:18
   name: Install Dependencies
 - commands:
   - echo $${SHOBHIT_ENV}
   environment:
     SHOBHIT_ENV:
-      from_secret: SHOBHIT_SEC
+      from_secret: FOO
   image: node:18
   name: Run Linting
 - commands:
   - echo $${SHOBHIT_ENV}
   environment:
     SHOBHIT_ENV:
-      from_secret: SHOBHIT_SEC
+      from_secret: FOO
   image: node:18
   name: Run Unit Tests
 trigger:
@@ -29,7 +29,7 @@ trigger:
     - main
   event:
   - push
-type: docker
+type: kubernetes
 
 
 # ---
