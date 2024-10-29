@@ -5,22 +5,22 @@ steps:
 - commands:
   - echo 1
   environment:
-    SAMPLE_KEY:
-      from_secret: FOO
+    SHOBHIT_ENV:
+      from_secret: SHOBHIT_SEC
   image: node:18
   name: Install Dependencies
 - commands:
-  - echo $${SAMPLE_KEY}
+  - echo $${SHOBHIT_ENV}
   environment:
-    SAMPLE_KEY:
-      from_secret: FOO
+    SHOBHIT_ENV:
+      from_secret: SHOBHIT_SEC
   image: node:18
   name: Run Linting
 - commands:
-  - echo $${SAMPLE_KEY}
+  - echo $${SHOBHIT_ENV}
   environment:
-    SAMPLE_KEY:
-      from_secret: FOO
+    SHOBHIT_ENV:
+      from_secret: SHOBHIT_SEC
   image: node:18
   name: Run Unit Tests
 trigger:
