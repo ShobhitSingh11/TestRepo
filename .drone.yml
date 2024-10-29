@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: kubernetes
-name: test secret kubernetes
+name: test secret kube
 
 platform:
   os: linux
