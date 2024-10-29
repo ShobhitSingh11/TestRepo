@@ -20,9 +20,9 @@ steps:
   image: alpine
   environment:
     TEST_ENV:
-      from_secret: FOO
+      from_secret: TESTING
   commands:
-    - echo "$TEST_ENV"
+    - echo $${TEST_ENV}
 
 
 # ---
