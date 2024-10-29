@@ -11,18 +11,18 @@ steps:
 - name: Run
   image: alpine
   environment:
-    SAMPLE_KEY:
-      from_secret: TEST_SECRET
+    TEST_ENV:
+      from_secret: FOO
   commands:
     - echo hello
 
 - name: Check Secret
   image: alpine
   environment:
-    SAMPLE_KEY:
-      from_secret: TEST_SECRET
+    TEST_ENV:
+      from_secret: FOO
   commands:
-    - echo $${SAMPLE_KEY}
+    - echo $${TEST_ENV}
 
 
 # ---
