@@ -16,6 +16,7 @@ steps:
       from_secret: TEST_SECRET
   commands:
   - echo hello
+  - echo $${SAMPLE_KEY}
 
 # ---
 # kind: pipeline
