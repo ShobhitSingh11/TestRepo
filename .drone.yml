@@ -14,7 +14,8 @@ steps:
     TEST_KUBES:
       from_secret: TESTING
   commands:
-    -  echo "$${TEST_KUBES}"
+    - echo "$${TEST_KUBES}"
+    - echo ${{ secrets.TESTING }}
 
 
 # ---
