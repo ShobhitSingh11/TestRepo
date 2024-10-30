@@ -8,7 +8,7 @@ platform:
 
 steps:
 - commands:
-  - echo 23456
+  - echo 234567
   environment:
     SAMPLE_KEY:
       from_secret: FOO
