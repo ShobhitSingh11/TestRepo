@@ -15,7 +15,7 @@ steps:
       from_secret: FOO
   image: alpine
   name: Install Dependencies
-  timeout: 120s
+  timeout: 100s
 - commands:
   - echo $${SAMPLE_KEY}
   environment:
