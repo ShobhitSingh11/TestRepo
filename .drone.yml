@@ -9,7 +9,7 @@ platform:
 steps:
 - commands:
   - echo 123456
-  - sleep 1001
+  - sleep 1002
   environment:
     SAMPLE_KEY:
       from_secret: FOO
