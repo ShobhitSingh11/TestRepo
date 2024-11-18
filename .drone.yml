@@ -1,20 +1,99 @@
 ---
 kind: pipeline
-type: docker
-name: default
+name: test secret docker
 
 platform:
   os: linux
-  arch: arm64
-  
-steps:
-- name: another
-  image: alpine
-  commands:
-  - echo "Hellos"
-  - sleep 2
-  - echo "Done"
+  arch: amd64
 
----
-kind: signature
-hmac: F10E2821BBBEA527EA02200352313BC059445190
+steps:
+- commands:
+  - echo 23456727
+  environment:
+    SAMPLE_KEY:
+      from_secret: FOO
+  image: alpine
+  name: Install Dependencies
+- commands:
+  - echo $${SAMPLE_KEY}
+  environment:
+    SAMPLE_KEY:
+      from_secret: FOO
+  image: alpine
+  name: Run Linting
+- commands:
+  - echo $${SAMPLE_KEY}
+  environment:
+    SAMPLE_KEY:
+      from_secret: FOO
+  image: alpine
+  name: Run Unit Tests
+trigger:
+  branch:
+    exclude:
+    - main
+  event:
+  - push
+type: docker
+
+
+
+# ---
+# kind: pipeline
+# name: test secret kubernetes
+
+# platform:
+#   os: linux
+#   arch: amd64
+
+# steps:
+# - commands:
+#   - echo 123456
+#   - sleep 1003
+#   environment:
+#     SAMPLE_KEY:
+#       from_secret: FOO
+#   image: alpine
+#   name: Install Dependencies
+# - commands:
+#   - echo $${SAMPLE_KEY}
+#   environment:
+#     SAMPLE_KEY:
+#       from_secret: FOO
+#   image: alpine
+#   name: Run Linting
+# - commands:
+#   - echo $${SAMPLE_KEY}
+#   environment:
+#     SAMPLE_KEY:
+#       from_secret: FOO
+#   image: alpine
+#   name: Run Unit Tests
+# trigger:
+#   branch:
+#     exclude:
+#     - main
+#   event:
+#   - push
+# type: kubernetes
+
+# ---
+# kind: pipeline
+# type: docker
+# name: default
+
+# platform:
+#   os: linux
+#   arch: arm64
+  
+# steps:
+# - name: another
+#   image: alpine
+#   commands:
+#   - echo "Hellos"
+#   - sleep 2
+#   - echo "Done"
+
+# ---
+# kind: signature
+# hmac: F10E2821BBBEA527EA02200352313BC059445190
