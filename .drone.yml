@@ -42,7 +42,7 @@ name: test secret kubernetes
 
 steps:
 - commands:
-  - echo 123456785
+  - echo 123456786
   - echo $${SAMPLE_KEY}
   environment:
     SAMPLE_KEY:
