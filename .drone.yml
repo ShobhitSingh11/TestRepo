@@ -35,36 +35,36 @@ type: docker
 
 
 
-# ---
-# kind: pipeline
-# name: test secret kubernetes
+---
+kind: pipeline
+name: test secret kubernetes
 
-# steps:
-# - commands:
-#   - echo 123456785
-#   environment:
-#     SAMPLE_KEY:
-#       from_secret: FOO
-#   image: alpine
-#   name: Install Dependencies
-# - commands:
-#   - echo $${SAMPLE_KEY}
-#   environment:
-#     SAMPLE_KEY:
-#       from_secret: FOO
-#   image: alpine
-#   name: Run Linting
-# - commands:
-#   - echo $${SAMPLE_KEY}
-#   environment:
-#     SAMPLE_KEY:
-#       from_secret: FOO
-#   image: alpine
-#   name: Run Unit Tests
-# trigger:
-#   branch:
-#     exclude:
-#     - main
-#   event:
-#   - push
-# type: kubernetes
+steps:
+- commands:
+  - echo 123456785
+  environment:
+    SAMPLE_KEY:
+      from_secret: FOO
+  image: alpine
+  name: Install Dependencies
+- commands:
+  - echo $${SAMPLE_KEY}
+  environment:
+    SAMPLE_KEY:
+      from_secret: FOO
+  image: alpine
+  name: Run Linting
+- commands:
+  - echo $${SAMPLE_KEY}
+  environment:
+    SAMPLE_KEY:
+      from_secret: FOO
+  image: alpine
+  name: Run Unit Tests
+trigger:
+  branch:
+    exclude:
+    - main
+  event:
+  - push
+type: kubernetes
