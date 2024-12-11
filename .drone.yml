@@ -13,7 +13,7 @@ steps:
   commands:
   - echo "Hello"
   - sleep 2
-  - echo "Done"
+  - echo "Dones"
 
 ---
 kind: signature
