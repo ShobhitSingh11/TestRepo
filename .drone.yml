@@ -4,7 +4,7 @@ name: test secret docker
 
 steps:
 - commands:
-  - echo 123456786
+  - echo 123456786d
   - echo $${SAMPLE_KEY}
   environment:
     SAMPLE_KEY:
