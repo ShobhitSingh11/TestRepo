@@ -19,6 +19,7 @@ steps:
       from_secret: check
   commands:
     - echo "$MY_SECRET" >> .secrets
+    - cat .secrets
 - name: cat
   image: alpine
   commands:
