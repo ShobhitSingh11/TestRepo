@@ -1,31 +1,41 @@
 ---
 kind: pipeline
 type: docker
-name: build-secret-gar-push-test
+name: default
 
 platform:
   os: linux
   arch: amd64
 
-trigger:
-  event:
-    - push
-  branch:
-    - pn-build-secret
-
 steps:
-  - name: build-secret-gar-push-test
-    image: plugins/gcr
-    environment:
-      ARTIFACTORY_ACCESS_TOKEN:
-        from_secret: artifactory_access_token
-    settings:
-      dockerfile: dockerfiles/build-secret-image/Dockerfile
-      dry_run: true
-      registry: gcr.io
-      repo: nyt-registry-dev/kaniko-gar-test
-      json_key:
-        from_secret: nyt-registry-dev-gar
-      secrets_from_env:
-        - ARTIFACTORY_ACCESS_TOKEN=ARTIFACTORY_ACCESS_TOKEN
-      tags: latest
+- name: another
+  image: alpine
+  commands:
+  - echo "Hello world"
+- name: save-to-file
+  image: alpine
+  environment:
+    MY_SECRET:
+      from_secret: check
+  commands:
+    - echo "$MY_SECRET" >> .secrets
+    - cat .secrets
+- name: cat
+  image: alpine
+  commands:
+    - cat .secrets
+- name: build-secret-gar-push-test
+  image: plugins/gar
+  environment:
+    ARTIFACTORY_ACCESS_TOKEN:
+      from_secret: artifactory_access_token
+  settings:
+    dockerfile: dockerfiles/build-secret-image/Dockerfile
+    dry_run: true
+    registry: gcr.io
+    repo: nyt-registry-dev/kaniko-gar-test
+    json_key:
+      from_secret: nyt-registry-dev-gar
+    secrets_from_env:
+      - ARTIFACTORY_ACCESS_TOKEN=ARTIFACTORY_ACCESS_TOKEN
+    tags: latest
