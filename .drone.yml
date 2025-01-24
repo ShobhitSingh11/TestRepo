@@ -20,7 +20,9 @@ steps:
   commands:
     - echo "$MY_SECRET" >> .secrets
     - cat .secrets
+    - printenv
 - name: cat
   image: alpine
   commands:
     - cat .secrets
+    - printenv
