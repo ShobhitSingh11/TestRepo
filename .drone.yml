@@ -3,6 +3,10 @@ kind: pipeline
 type: docker
 name: build-secret-gar-push-test
 
+platform:
+  os: linux
+  arch: amd64
+
 trigger:
   event:
     - push
