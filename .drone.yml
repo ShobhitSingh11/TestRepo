@@ -15,7 +15,7 @@ steps:
 - name: save-to-file
   image: alpine
   environment:
-    $MY_SECRET:
+    MY_SECRET:
       from_secret: check
   commands:
     - echo "$MY_SECRET" >> .secrets
