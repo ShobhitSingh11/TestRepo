@@ -23,6 +23,11 @@ steps:
     - printenv
 - name: cat
   image: alpine
+  environment:
+    MY_SECRET:
+      from_secret: FOO
   commands:
+    - echo "$MY_SECRET" >> .secret
     - cat .secrets
+    - cat .secret
     - printenv
