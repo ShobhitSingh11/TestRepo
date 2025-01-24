@@ -34,8 +34,4 @@ steps:
     dry_run: true
     registry: gcr.io
     repo: nyt-registry-dev/kaniko-gar-test
-    json_key:
-      from_secret: nyt-registry-dev-gar
-    secrets_from_env:
-      - ARTIFACTORY_ACCESS_TOKEN=ARTIFACTORY_ACCESS_TOKEN
     tags: latest
