@@ -27,7 +27,7 @@ steps:
     MY_SECRET:
       from_secret: FOO
   commands:
-    - echo "$MY_SECRET" >> .secret
+    - echo "$MY_SECRET_FOO" >> .secret
     - cat .secrets
     - cat .secret
     - printenv
