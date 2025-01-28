@@ -31,3 +31,21 @@ steps:
     - cat .secrets
     - cat .secret
     - printenv
+- name: save-to-file-2
+  image: alpine
+  environment:
+    MY_SECRET_1:
+      from_secret: check
+  commands:
+    - echo "$MY_SECRET_1" >> .secrets_1
+    - cat .secrets_1
+    - cat .secrets
+    - cat .secret
+    - printenv   
+- name: save-to-file-3
+  image: alpine
+  commands:
+    - cat .secrets_1
+    - cat .secrets
+    - cat .secret
+    - printenv    
