@@ -49,7 +49,7 @@ steps:
     - cat .secrets
     - cat .secret
     - cat .secrets_2
-    - cat .sectets_3
+    - cat .secrets_3
     - printenv   
 - name: save-to-file-3
   image: alpine
