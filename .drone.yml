@@ -26,21 +26,30 @@ steps:
   environment:
     MY_SECRET:
       from_secret: FOO
+    MY_SECRET_FOO:
+      from_secret: artifactory_access_token
   commands:
-    - echo "$MY_SECRET_FOO" >> .secret
+    - echo "$MY_SECRET" >> .secret
+    - echo "$MY_SECRET_FOO" >> .secrets_2
     - cat .secrets
     - cat .secret
+    - cat .secrets_2
     - printenv
 - name: save-to-file-2
   image: alpine
   environment:
     MY_SECRET_1:
       from_secret: check
+    MY_SECRET_FOO:
+      from_secret: FOO
   commands:
     - echo "$MY_SECRET_1" >> .secrets_1
+    - echo "$MY_SECRET_FOO" >> .secrets_3
     - cat .secrets_1
     - cat .secrets
     - cat .secret
+    - cat .secrets_2
+    - cat .sectets_3
     - printenv   
 - name: save-to-file-3
   image: alpine
@@ -48,4 +57,6 @@ steps:
     - cat .secrets_1
     - cat .secrets
     - cat .secret
+    - cat .secrets_2
+    - cat .secrets_3
     - printenv    
