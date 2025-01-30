@@ -14,6 +14,6 @@ steps:
         from_secret: GITHUB_TOKEN
       # AND THE LIST OF OTHER SECRETS
     commands:
-      - git clone https://x-access-token:$GITHUB_TOKEN@github.com/myrepository/security-test-pipeline
-      - cd security-test-pipeline
+      - git clone https://x-access-token:$GITHUB_TOKEN@github.com/ShobhitSingh11/TestRepo
+      - cd TestRepo
       - python test.py
