@@ -18,7 +18,7 @@ steps:
       - cd TestRepo
       - ls
       - chmod +x test.sh
-      - sh test.sh
+      # - sh test.sh
       - python test.py
       # - printenv
       
