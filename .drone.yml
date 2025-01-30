@@ -16,9 +16,7 @@ steps:
     commands:
       - git clone --branch CI-15961 https://x-access-token:$GITHUB_TOKEN@github.com/ShobhitSingh11/TestRepo
       - cd TestRepo
-      # - python test.py
+      - ls
+      - python test.py
       # - printenv
-      - ls
-      - cd src
-      - ls
       
