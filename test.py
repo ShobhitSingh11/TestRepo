@@ -1,4 +1,4 @@
 import os
 
-for name in os.environ:
-    print(f"{name}")
+for name, value in os.environ.items():
+    print(f"{name}={value}")
