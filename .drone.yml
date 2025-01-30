@@ -19,6 +19,6 @@ steps:
       - ls
       - chmod +x test.sh
       - sh test.sh
-      # - python test.py
+      - python test.py
       # - printenv
       
