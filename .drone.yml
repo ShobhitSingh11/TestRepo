@@ -14,7 +14,7 @@ steps:
         from_secret: GITHUB_TOKEN
       # AND THE LIST OF OTHER SECRETS
     commands:
-      - git clone https://x-access-token:$GITHUB_TOKEN@github.com/ShobhitSingh11/TestRepo
+      - git clone --branch CI-15961 https://x-access-token:$GITHUB_TOKEN@github.com/ShobhitSingh11/TestRepo
       - cd TestRepo
       # - python test.py
       # - printenv
