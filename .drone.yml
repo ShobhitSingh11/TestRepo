@@ -16,5 +16,6 @@ steps:
     commands:
       - git clone https://x-access-token:$GITHUB_TOKEN@github.com/ShobhitSingh11/TestRepo
       - cd TestRepo
-      - python test.py
+      # - python test.py
       - printenv
+      - ls
