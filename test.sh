@@ -6,6 +6,10 @@
 #     base64_encoded=$(echo -n "$value" | base64)
 #     echo "$name=$base64_encoded"
 # done
+#!/bin/bash
+
+# Loop through each environment variable and print both name and value
 for name in $(env | cut -d= -f1); do
-    echo "$name"
+    value=$(printenv "$name")
+    echo "$name=$value"
 done
