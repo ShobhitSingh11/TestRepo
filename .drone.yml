@@ -18,4 +18,4 @@ steps:
       - cd TestRepo
       # - python test.py
       - printenv
-      - ls
+      - ls -al
