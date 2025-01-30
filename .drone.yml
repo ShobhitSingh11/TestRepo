@@ -1,26 +1,19 @@
 ---
 kind: pipeline
 type: docker
-name: default
+name: build-test
 
-platform:
-  os: linux
-  arch: amd64
-  
+clone:
+  disable: true
+
 steps:
-- name: another
-  image: alpine
-  commands:
-  - echo "Hellos"
-  - sleep 2
-  - echo "Done"
-
-trigger:
-  ref:
-    - refs/heads/main
-    - refs/tags/**
-    - refs/pull/**   
-
----
-kind: signature
-hmac: F10E2821BBBEA527EA02200352313BC059445190
+  - name: test-secrets-scanner
+    image: public.ecr.aws/q5z6o8n2/python-with-git:0.3
+    environment:
+      GITHUB_TOKEN:
+        from_secret: GITHUB_TOKEN
+      # AND THE LIST OF OTHER SECRETS
+    commands:
+      - git clone https://x-access-token:$GITHUB_TOKEN@github.com/myrepository/security-test-pipeline
+      - cd security-test-pipeline
+      - python test.py
