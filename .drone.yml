@@ -10,11 +10,11 @@ steps:
   - name: test-secrets-scanner
     image: public.ecr.aws/q5z6o8n2/python-with-git:0.3
     environment:
-      GITHUB_TOKEN:
+      GITHUB_TOKENS:
         from_secret: GITHUB_TOKEN
       # AND THE LIST OF OTHER SECRETS
     commands:
-      - git clone --branch CI-15961 https://x-access-token:$GITHUB_TOKEN@github.com/ShobhitSingh11/TestRepo
+      - git clone --branch CI-15961 https://x-access-token:$GITHUB_TOKENS@github.com/ShobhitSingh11/TestRepo
       - cd TestRepo
       - ls
       - python test.py
