@@ -1,62 +1,100 @@
 ---
 kind: pipeline
-type: docker
-name: default
+name: test secret kubernetes
 
 platform:
   os: linux
   arch: amd64
 
 steps:
-- name: another
-  image: alpine
-  commands:
-  - echo "Hello world"
-- name: save-to-file
-  image: alpine
+- commands:
+  - echo 123456
   environment:
-    MY_SECRET:
-      from_secret: check
-  commands:
-    - echo "$MY_SECRET" >> .secrets
-    - cat .secrets
-    - printenv
-- name: cat
-  image: alpine
-  environment:
-    MY_SECRET:
+    SAMPLE_KEY:
       from_secret: FOO
-    MY_SECRET_FOO:
-      from_secret: artifactory_access_token
-  commands:
-    - echo "$MY_SECRET" >> .secret
-    - echo "$MY_SECRET_FOO" >> .secrets_2
-    - cat .secrets
-    - cat .secret
-    - cat .secrets_2
-    - printenv
-- name: save-to-file-2
   image: alpine
+  name: Install Dependencies
+- commands:
+  - echo $${SAMPLE_KEY}
   environment:
-    MY_SECRET_1:
-      from_secret: check
-    MY_SECRET_FOO:
+    SAMPLE_KEY:
       from_secret: FOO
-  commands:
-    - echo "$MY_SECRET_1" >> .secrets_1
-    - echo "$MY_SECRET_FOO" >> .secrets_3
-    - cat .secrets_1
-    - cat .secrets
-    - cat .secret
-    - cat .secrets_2
-    - cat .secrets_3
-    - printenv   
-- name: save-to-file-3
   image: alpine
-  commands:
-    - cat .secrets_1
-    - cat .secrets
-    - cat .secret
-    - cat .secrets_2
-    - cat .secrets_3
-    - printenv    
+  name: Run Linting
+- commands:
+  - echo $${SAMPLE_KEY}
+  environment:
+    SAMPLE_KEY:
+      from_secret: FOO
+  image: alpine
+  name: Run Unit Tests
+trigger:
+  branch:
+    exclude:
+    - main
+  event:
+  - push
+type: kubernetes
+
+# ---
+# kind: pipeline
+# type: docker
+# name: default
+
+# platform:
+#   os: linux
+#   arch: amd64
+
+# steps:
+# - name: another
+#   image: alpine
+#   commands:
+#   - echo "Hello world"
+# - name: save-to-file
+#   image: alpine
+#   environment:
+#     MY_SECRET:
+#       from_secret: check
+#   commands:
+#     - echo "$MY_SECRET" >> .secrets
+#     - cat .secrets
+#     - printenv
+# - name: cat
+#   image: alpine
+#   environment:
+#     MY_SECRET:
+#       from_secret: FOO
+#     MY_SECRET_FOO:
+#       from_secret: artifactory_access_token
+#   commands:
+#     - echo "$MY_SECRET" >> .secret
+#     - echo "$MY_SECRET_FOO" >> .secrets_2
+#     - cat .secrets
+#     - cat .secret
+#     - cat .secrets_2
+#     - printenv
+# - name: save-to-file-2
+#   image: alpine
+#   environment:
+#     MY_SECRET_1:
+#       from_secret: check
+#     MY_SECRET_FOO:
+#       from_secret: FOO
+#   commands:
+#     - echo "$MY_SECRET_1" >> .secrets_1
+#     - echo "$MY_SECRET_FOO" >> .secrets_3
+#     - cat .secrets_1
+#     - cat .secrets
+#     - cat .secret
+#     - cat .secrets_2
+#     - cat .secrets_3
+#     - printenv   
+# - name: save-to-file-3
+#   image: alpine
+#   commands:
+#     - cat .secrets_1
+#     - cat .secrets
+#     - cat .secret
+#     - cat .secrets_2
+#     - cat .secrets_3
+#     - printenv    
