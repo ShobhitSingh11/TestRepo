@@ -30,4 +30,4 @@ pipeline:
                     connectorRef: ShobhitDockerConnector
                     image: alpine
                     shell: Sh
-                    command: echo "hellos"
+                    command: echo "hello hhh"
