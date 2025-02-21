@@ -1,33 +1,30 @@
 pipeline:
-  name: pipeCond3
-  identifier: pipeCond3
-  tags: {}
-  projectIdentifier: Unified
-  orgIdentifier: default
+  clone:
+    disabled: true
+  "on":
+    - push
+    - pull_request
+  inputs:
+    branch:
+      type: string
+      value: main
   stages:
-    - stage:
-        name: CI
-        identifier: CI
-        description: ""
-        type: CI
-        spec:
-          cloneCodebase: false
-          infrastructure:
-            type: KubernetesDirect
-            spec:
-              connectorRef: ShobhitK8
-              namespace: harness-delegate-ng
-              automountServiceAccountToken: true
-              nodeSelector: {}
-              os: Linux
-          execution:
-            steps:
-              - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
-                  spec:
-                    connectorRef: ShobhitDockerConnector
-                    image: alpine
-                    shell: Sh
-                    command: echo "hello hhh"
+    - strategy:
+        matrix:
+          go:
+            - latest
+            - "1.19"
+      name: stage
+      steps:
+        - run:
+            script: |-
+              echo <+matrix.version>
+              echo <+pipeline.name>
+              echo <+trigger.branch>
+              echo <+trigger.prNumber>
+              echo <+pipeline.branch>
+              echo <+inputs.branch>
+              echo ${{ matrix.version }}
+              echo ${{ pipeline.stages.stage_1_0.steps.run_1_0.isBackground }}
+              echo $TEST
+              echo "foo=bar" >> $HARNESS_OUTPUT_FILE
