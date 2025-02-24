@@ -16,3 +16,4 @@ steps:
     TEST_CASE_ID: C1231011
   commands: 
     - echo hello
+    - echo ${TEST_CASE_ID}
