@@ -7,7 +7,7 @@ platform:
   arch: amd64
 steps:
 - commands:
-  - mix do ecto.create, ecto.load, ecto.migrate, clickhouse.repl.create, clickhouse.create
+  - mix do ecto.create, ecto.load, ecto.migrate, clickhouse.repl.create, clickhouse.create | tail -n 100
   depends_on:
   - install-deps
   - db-connections
