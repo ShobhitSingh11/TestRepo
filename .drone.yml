@@ -1,37 +1,66 @@
 ---
 kind: pipeline
 type: docker
+name: default
 
 platform:
   os: linux
   arch: arm64
-
-name: WMS - YEMEK - STG - 6
-clone:
-  disable: true
+  
+steps:
+- name: another
+  image: alpine
+  commands:
+  - yes "This is a test log line" | head -n 10
 
 trigger:
-event:
-- promote
-target:
-- yemek
-- fcm
-- fcm_yemek
-status:
-- success
-- failure
+  ref:
+    - refs/heads/main
+    - refs/tags/**
+    - refs/pull/**   
 
-workspace:
-path: /nv-automations
 
-image_pull_secrets:
-- dockerconfigjson
 
-steps:
-- name: FCM - View Daily - With Warehouse Filter
-  image: alpine
-  environment:
-    TEST_CASE_ID: C1231011
-  commands: 
-    - echo hello
-    - echo $${TEST_CASE_ID}
+
+
+# ---
+# kind: signature
+# hmac: F10E2821BBBEA527EA02200352313BC059445190
+
+# ---
+# kind: pipeline
+# type: docker
+
+# platform:
+#   os: linux
+#   arch: arm64
+
+# name: WMS - YEMEK - STG - 6
+# clone:
+#   disable: true
+
+# trigger:
+# event:
+# - promote
+# target:
+# - yemek
+# - fcm
+# - fcm_yemek
+# status:
+# - success
+# - failure
+
+# workspace:
+# path: /nv-automations
+
+# image_pull_secrets:
+# - dockerconfigjson
+
+# steps:
+# - name: FCM - View Daily - With Warehouse Filter
+#   image: alpine
+#   environment:
+#     TEST_CASE_ID: C1231011
+#   commands: 
+#     - echo hello
+#     - echo $${TEST_CASE_ID}
