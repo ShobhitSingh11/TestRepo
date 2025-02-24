@@ -4,7 +4,7 @@ name: default
 type: docker
 platform:
   os: linux
-  arch: amd64
+  arch: arm64
 steps:
 - commands:
   - mix do ecto.create, ecto.load, ecto.migrate, clickhouse.repl.create, clickhouse.create | tail -n 100
