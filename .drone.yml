@@ -6,7 +6,10 @@ name: default
 platform:
   os: linux
   arch: arm64
-  
+
+
+clone:
+  disable: true  
 steps:
 - name: another
   image: alpine
