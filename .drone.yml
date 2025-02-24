@@ -5,6 +5,7 @@ type: docker
 platform:
   os: linux
   arch: amd64
+steps:
 - commands:
   - mix do ecto.create, ecto.load, ecto.migrate, clickhouse.repl.create, clickhouse.create
   depends_on:
