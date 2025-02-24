@@ -11,8 +11,8 @@ steps:
 - name: another
   image: alpine
   commands:
-  - echo "Hellos"
-  - echo "Done"
+  - yes "This is a test log line" | head -n 10
+
 
 trigger:
   ref:
