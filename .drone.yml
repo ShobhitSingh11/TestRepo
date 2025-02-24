@@ -9,13 +9,24 @@ platform:
 name: WMS - YEMEK - STG - 6
 clone:
   disable: true
+
+trigger:
+event:
+- promote
+target:
+- yemek
+- fcm
+- fcm_yemek
+status:
+- success
+- failure
+
 workspace:
 path: /nv-automations
 
 image_pull_secrets:
 - dockerconfigjson
 
-steps:
 - name: FCM - View Daily - With Warehouse Filter
   image: alpine
   environment:
