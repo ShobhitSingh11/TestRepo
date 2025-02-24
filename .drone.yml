@@ -1,13 +1,10 @@
 ---
-
 kind: pipeline
 name: default
 type: docker
 platform:
   os: linux
   arch: amd64
-node:
-  enviroment: production
 - commands:
   - mix do ecto.create, ecto.load, ecto.migrate, clickhouse.repl.create, clickhouse.create
   depends_on:
