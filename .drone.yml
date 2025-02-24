@@ -9,9 +9,10 @@ path: /nv-automations
 image_pull_secrets:
 - dockerconfigjson
 
+steps:
 - name: FCM - View Daily - With Warehouse Filter
-image: alpine
-environment:
-<<: *env
-TEST_CASE_ID: C1231011
-commands: echo hello
+  image: alpine
+  environment:
+    TEST_CASE_ID: C1231011
+  commands: 
+    - echo hello
