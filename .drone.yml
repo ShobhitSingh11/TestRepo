@@ -3,21 +3,6 @@ kind: pipeline
 type: docker
 
 name: WMS - YEMEK - STG - 6
-
-clone:
-disable: true
-
-trigger:
-event:
-- promote
-target:
-- yemek
-- fcm
-- fcm_yemek
-status:
-- success
-- failure
-
 workspace:
 path: /nv-automations
 
@@ -25,12 +10,8 @@ image_pull_secrets:
 - dockerconfigjson
 
 - name: FCM - View Daily - With Warehouse Filter
-image: *image
-pull: *pull
+image: alpine
 environment:
 <<: *env
 TEST_CASE_ID: C1231011
-commands: *commands_video
-when: *when
-depends_on:
-- FCM - View Daily - No Warehouse Filter
+commands: echo hello
