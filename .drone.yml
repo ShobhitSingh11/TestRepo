@@ -6,6 +6,10 @@ name: WMS - YEMEK - STG - 6
 clone:
   disable: true
 
+platform:
+  os: linux
+  arch: amd64  
+
 trigger:
 event:
 - promote
