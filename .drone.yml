@@ -27,6 +27,7 @@ path: /nv-automations
 image_pull_secrets:
 - dockerconfigjson
 
+steps:
 - name: FCM - View Daily - With Warehouse Filter
   image: alpine
   environment:
