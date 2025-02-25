@@ -5,15 +5,14 @@ name: default
 
 platform:
   os: linux
-  arch: amd64
+  arch: arm64
   
 steps:
 - name: another
   image: alpine
   commands:
-  - echo "Hellos"
-  - sleep 2
-  - echo "Done"
+  - yes "This is a test log line" | head -n 12001
+
 
 trigger:
   ref:
