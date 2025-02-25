@@ -11,9 +11,9 @@ steps:
 - name: another
   image: alpine
   commands:
-  - echo "Hellos"
+  - echo "Hello"
   - sleep 2
-  - echo "Done"
+  - echo "Dones"
 
 trigger:
   ref:
