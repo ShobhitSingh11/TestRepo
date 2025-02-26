@@ -1,0 +1,33 @@
+pipeline:
+  name: tttt
+  identifier: tttt
+  tags: {}
+  projectIdentifier: Unified
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: tttt
+        identifier: tttt
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: ShobhitK8
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: ShobhitDockerConnector
+                    image: alpine
+                    shell: Sh
+                    command: echo "hello"
