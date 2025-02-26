@@ -1,0 +1,33 @@
+pipeline:
+  name: testtest
+  identifier: testtest
+  tags: {}
+  projectIdentifier: Unified
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: fr4
+        identifier: fr4
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: ShobhitK8
+              namespace: grtf4
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: ShobhitDockerConnector
+                    image: alpine
+                    shell: Sh
+                    command: echo "hello"
