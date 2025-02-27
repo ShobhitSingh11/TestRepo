@@ -3,4 +3,4 @@ pipeline:
     - steps:
         - run:
             script: |-
-              echo "hello"
+              echo "hellow"
