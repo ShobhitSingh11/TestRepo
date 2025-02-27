@@ -3,5 +3,4 @@ pipeline:
     - steps:
         - run:
             script: |-
-              go build
-              echo "hellos"
+              echo "hello"
