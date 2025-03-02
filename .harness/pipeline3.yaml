@@ -5,7 +5,7 @@ pipeline:
         - pipeline-3
     pull_request:
       branches:
-        - master
+        - main
   stages:
     - steps:
         - run:
