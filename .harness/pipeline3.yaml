@@ -1,4 +1,11 @@
 pipeline:
+  "on":
+    push:
+      branches:
+        - pipeline-3
+    pull_request:
+      branches:
+        - master
   stages:
     - steps:
         - run:
