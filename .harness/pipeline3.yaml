@@ -11,4 +11,4 @@ pipeline:
   stages:
     - steps:
         - run:
-            script: echo pipeline-3
+            script: echo "hello from pipeline-3 branch"
