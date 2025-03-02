@@ -3,7 +3,7 @@ pipeline:
     branches:
       - develop
       - main
-      - master
+      - pipeline-5
   pull_request:
     branches:
       - main
