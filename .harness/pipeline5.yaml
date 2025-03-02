@@ -6,6 +6,8 @@ pipeline:
     pull_request:
       branches:
         - main
+        - develop
+        - master
   clone:
     disabled: true
   stages:
