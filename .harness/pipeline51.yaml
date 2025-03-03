@@ -1,0 +1,15 @@
+pipeline:
+  push:
+    branches:
+      - develop
+      - main
+      - pipeline-5
+  pull_request:
+    branches:
+      - main
+  clone:
+    disabled: true
+  stages:
+    - steps:
+        - run:
+            script: echo "hello from branch 5 and pipeline 5-1 "
