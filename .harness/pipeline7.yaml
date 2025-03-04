@@ -1,0 +1,11 @@
+pipeline:
+  "on":
+    push:
+      branches:
+        - pipeline-7
+  clone:
+    disabled: true
+  stages:
+    - steps:
+        - run:
+            script: echo "hello from branch pipeline-7.Sync. Lets see"
