@@ -3,11 +3,6 @@ pipeline:
     push:
       branches:
         - pipeline-7
-    pull_request:
-      branches:
-        - main
-        - develop
-        - master
   clone:
     disabled: true
   stages:
