@@ -3,6 +3,8 @@ pipeline:
     push:
       branches:
         - pipeline-9
+    pull_request:
+      branches: main
   clone:
     disabled: true
   stages:
