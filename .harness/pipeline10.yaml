@@ -4,7 +4,8 @@ pipeline:
       branches:
         - pipeline-10
     pull_request:
-      branches: main
+      branches:
+        - develop
   clone:
     disabled: true
   stages:
