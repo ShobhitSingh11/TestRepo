@@ -6,4 +6,4 @@ pipeline:
   stages:
     - steps:
         - run:
-            script: echo "hello from branch pipeline-10-3.Sync."
+            script: echo "hello from branch pipeline-10-3.Sync. "
