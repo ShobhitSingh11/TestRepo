@@ -1,11 +1,11 @@
 pipeline:
   "on":
-    push:
-      branches:
-        - pipeline-100
-    pull_request:
-      branches:
-        - main
+    - push:
+        branches:
+          - pipeline-100
+    - pull_request:
+        branches:
+          - main
   clone:
     disabled: true
   stages:
