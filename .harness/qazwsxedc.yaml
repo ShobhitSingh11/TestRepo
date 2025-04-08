@@ -2,4 +2,4 @@ pipeline:
   stages:
     - steps:
         - run:
-            script: go buildsss
+            script: echo "hello"
