@@ -1,0 +1,33 @@
+pipeline:
+  name: pipeCond3
+  identifier: pipeCond3
+  tags: {}
+  projectIdentifier: Unified
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: CI
+        identifier: CI
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: ShobhitK8
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_2
+                  identifier: Run_2
+                  spec:
+                    connectorRef: ShobhitDockerConnector
+                    image: alpine
+                    shell: Sh
+                    command: echo "hello how r u"
