@@ -1,0 +1,54 @@
+pipeline:
+  stages:
+    - runtime: shell
+      steps:
+        - run:
+            script: |-
+              echo "hello world"
+              echo "no step template reference"
+        - template:
+            uses: TestTemplateStep
+            with:
+              input1: <+input>
+              input2: true
+              input3: 99
+              input4: testing
+              input5: <+input>
+              input6: <+input>
+        - action:
+            uses: testStepTemplate
+            with:
+              input1: Yo
+              input2: <+input>
+              input3: <+input>
+              input4: <+input>
+              input5: false
+              input6: 75
+    - runtime: shell
+      steps:
+        - run:
+            script: |-
+              echo "hii"
+              echo "how are you"
+        - run:
+            script: echo "hello world"
+    - runtime: shell
+      template:
+        uses: testStageTemplate
+        with:
+          input1: <+input>
+          input2: true
+          input3: 70
+          input4: hiiiii
+          input5: <+input>
+          input6: <+input>
+    - runtime: shell
+      action:
+        uses: TestTemplateStage
+        with:
+          input1: singh
+          input2: <+input>
+          input3: <+input>
+          input4: <+input>
+          input5: true
+          input6: 66
