@@ -32,6 +32,8 @@ pipeline:
               echo "how are you"
         - run:
             script: echo "hello world"
+        - run:
+            script: echo "additional run step"
     - runtime: shell
       template:
         uses: testStageTemplate
