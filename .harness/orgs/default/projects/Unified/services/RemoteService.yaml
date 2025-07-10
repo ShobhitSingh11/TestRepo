@@ -3,3 +3,34 @@ service:
   identifier: RemoteService
   orgIdentifier: default
   projectIdentifier: Unified
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: TestManifest
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: ShobhitGitConnector
+                  gitFetchType: Commit
+                  paths:
+                    - test/k8s/examples/simple/templates
+                  commitId: d51002efd75571652f130ad09c59675c0560d937
+              valuesPaths:
+                - test/k8s/examples/simple/rollback-correct-values.yaml
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: DockerArtifact
+          sources:
+            - spec:
+                connectorRef: ShobhitCDDocker
+                imagePath: library/nginx
+                tag: stable
+                digest: ""
+              identifier: DockerArtifact
+              type: DockerRegistry
+    type: Kubernetes
