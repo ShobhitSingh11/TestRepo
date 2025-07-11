@@ -1,0 +1,13 @@
+template:
+  name: testRemoteV0
+  identifier: testRemoteV0
+  versionLabel: Version1
+  type: Step
+  projectIdentifier: Unified
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Run
+    spec:
+      shell: Sh
+      command: echo "hello"
