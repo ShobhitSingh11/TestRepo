@@ -1,11 +1,10 @@
-pipeline:
-  clone:
-    disabled: true
-  stages:
-    - runtime: shell
-      id: k8s-rolling-deploy
-      service:
-        id: RemoteService
-        ref: remoteService
-      action:
-        uses: k8s_rolling_k8
+clone:
+  disabled: true
+stages:
+  - runtime: shell
+    id: k8s-rolling-deploy
+    service:
+      id: RemoteService
+      ref: remoteService
+    action:
+      uses: k8s_rolling_k8
