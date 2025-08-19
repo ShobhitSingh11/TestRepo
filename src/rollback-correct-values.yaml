@@ -1,0 +1,25 @@
+name: ${{pipeline.name}}
+replicas: "2"
+
+image: library/nginx:latest
+createNamespace: true
+namespace: default
+
+serviceType: ClusterIP
+testSecret: ${{secrets.getValue("ShobhitUnifiedSecret")}}
+testSecret1: ${{secrets.getValue("ShobhitTestUnifiedSecret")}}
+
+servicePort: 80
+serviceTargetPort: 3000
+
+env:
+  config:
+    key1: value1
+  secrets:
+    key2: value2
+
+getpath: /
+initialdelay: "20"
+periodseconds: "5"
+failuretreshold: "10"
+successtreshold: "1"
