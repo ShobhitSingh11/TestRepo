@@ -1,0 +1,14 @@
+inputSet:
+  name: shobhit-inputssss
+  identifier: shobhitinputssss
+  orgIdentifier: default
+  projectIdentifier: Test
+  pipeline:
+    identifier: CI13151
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
