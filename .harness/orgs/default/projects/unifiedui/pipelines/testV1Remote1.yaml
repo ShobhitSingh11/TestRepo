@@ -1,0 +1,34 @@
+pipeline:
+  name: testV1Remote1
+  identifier: testV1Remote1
+  projectIdentifier: unifiedui
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: CU
+        identifier: CU
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: false
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: echo "hello"
