@@ -15,3 +15,4 @@ steps:
   - sleep 2
   - echo "Done"
   - uname -a
+  - echo "hellll"
