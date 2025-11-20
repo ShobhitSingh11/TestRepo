@@ -9,9 +9,9 @@ platform:
   
 steps:
 - name: another
-  image: alpine
   commands:
   - echo "Hellos"
   - sleep 2
   - echo "Done"
   - uname -a
+  - docker info
