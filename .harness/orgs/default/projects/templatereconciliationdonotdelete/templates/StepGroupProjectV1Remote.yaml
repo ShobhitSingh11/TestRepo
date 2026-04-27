@@ -1,0 +1,15 @@
+template:
+  inputs:
+    var:
+      type: string
+      required: true
+      default: hello
+  step:
+    group:
+      steps:
+        - run: echo "hiii"
+        - id: run8
+          run: <+input>
+        - id: runStepTemplate
+          action:
+            uses: RunStepProjectV1Remote
