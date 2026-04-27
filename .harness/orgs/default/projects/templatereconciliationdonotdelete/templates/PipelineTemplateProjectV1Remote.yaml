@@ -4,8 +4,29 @@ template:
       type: string
       required: true
       default: linux
+    var1:
+      type: string
+      required: true
+      default: var1
+    var2:
+      type: string
+      required: true
+      default: var2
   pipeline:
     stages:
-        - id: stage
-          action:
-            uses: StageProjectV1Remote
+      - id: stage
+        action:
+          uses: StageProjectV1Remote
+          with:
+            var1: "${{inputs.var1}}"
+            var2: "${{inputs.var2}}"
+            overlay:
+              stage:
+                timeout: <+input>
+                steps:
+                  - run: <+input>
+                    id: runStep1
+                  - run:
+                      script: <+input>
+                    timeout: <+input>
+                    id: runStep2
