@@ -21,3 +21,16 @@ template:
       - id: StepGroup
         action:
           uses: StepGroupProjectV1NestedRemote
+          with:
+            overlay:
+              step:
+                group:
+                  steps:
+                    - run:
+                        shell: <+input>
+                      id: run
+                    - run: <+input>
+                      id: run1
+                    - run:
+                        script: <+input>
+                      id: run2
