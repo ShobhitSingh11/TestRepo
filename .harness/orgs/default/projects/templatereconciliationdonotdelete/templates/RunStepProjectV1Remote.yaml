@@ -1,0 +1,27 @@
+template:
+  inputs:
+    var:
+      type: string
+      default: abc
+    testing:
+      type: string
+      required: true
+      default: test1
+    anotherTesting:
+      type: string
+      required: true
+      default: test1
+    variable:
+      type: string
+      required: true
+      default: variable
+    testVar:
+      type: string
+      required: true
+      default: testVar
+  step:
+    run:
+      shell: <+input>
+      script: <+input>
+      download: <+input>
+    timeout: <+input>
