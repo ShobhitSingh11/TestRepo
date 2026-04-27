@@ -10,6 +10,18 @@ template:
         - id: runStep
           action:
             uses: RunStepProjectV1Remote
+            with:
+              testing: "${{inputs.testing}}"
+              anotherTesting: "${{inputs.anotherTesting}}"
+              variable: "${{inputs.variable}}"
+              testVar: "${{inputs.testVar}}"
+              overlay:
+                step:
+                  run:
+                    shell: <+input>
+                    script: <+input>
+                    download: <+input>
+                  timeout: <+input>
         - id: run1
           run: <+input>
         - id: run2
@@ -18,3 +30,62 @@ template:
         - id: stepGroupNested
           template:
             uses: StepGroupProjectV1Remote
+            with:
+              var: "${{inputs.var}}"
+              testing: "${{inputs.testing_1}}"
+              anotherTesting: "${{inputs.anotherTesting_1}}"
+              variable: "${{inputs.variable_1}}"
+              testVar: "${{inputs.testVar_1}}"
+              overlay:
+                step:
+                  group:
+                    steps:
+                      - run: <+input>
+                        id: run8
+                      - id: runStepTemplate
+                        action:
+                          with:
+                            overlay:
+                              step:
+                                run:
+                                  shell: <+input>
+                                  script: <+input>
+                                  download: <+input>
+                                timeout: <+input>
+  inputs:
+    testing:
+      type: string
+      required: true
+      default: test1
+    anotherTesting:
+      type: string
+      required: true
+      default: test1
+    variable:
+      type: string
+      required: true
+      default: variable
+    testVar:
+      type: string
+      required: true
+      default: testVar
+    var:
+      type: string
+      required: true
+      default: hello
+    testing_1:
+      type: string
+      required: true
+      default: test1
+    anotherTesting_1:
+      type: string
+      required: true
+      default: test1
+    variable_1:
+      type: string
+      required: true
+      default: variable
+    testVar_1:
+      type: string
+      required: true
+      default: testVar
