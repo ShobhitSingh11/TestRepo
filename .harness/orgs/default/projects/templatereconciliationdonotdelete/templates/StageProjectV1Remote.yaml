@@ -18,18 +18,6 @@ template:
         run:
           script: <+input>
         timeout: <+input>
-      - id: runStep
+      - id: StepGroup
         action:
-          uses: RunStepProjectV1Remote
-          with:
-            testing: ${{inputs.testing}}
-            anotherTesting: ${{inputs.anotherTesting}}
-            variable: ${{inputs.variable}}
-            testVar: ${{inputs.testVar}}
-            overlay:
-              step:
-                run:
-                  shell: <+input>
-                  script: <+input>
-                  download: <+input>
-                timeout: <+input>
+          uses: StepGroupProjectV1NestedRemote
