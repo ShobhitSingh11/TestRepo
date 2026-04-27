@@ -3,5 +3,11 @@ pipeline:
     test:
       type: string
       default: testValue
+    goos:
+      type: string
+      required: true
+      default: linux
   template:
     uses: PipelineTemplateProjectV1Remote
+    with:
+      goos: "${{inputs.goos}}"
