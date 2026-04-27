@@ -19,6 +19,9 @@ template:
       type: string
       required: true
       default: testVar
+    env:
+      type: string
+      default: hii
   step:
     run:
       shell: <+input>
