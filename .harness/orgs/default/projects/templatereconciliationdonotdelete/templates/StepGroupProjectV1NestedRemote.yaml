@@ -1,0 +1,20 @@
+template:
+  step:
+    group:
+      steps:
+        - run: echo "world"
+        - id: run
+          run:
+            shell: <+input>
+            script: echo "heyyyy"
+        - id: runStep
+          action:
+            uses: RunStepProjectV1Remote
+        - id: run1
+          run: <+input>
+        - id: run2
+          run:
+            script: <+input>
+        - id: stepGroupNested
+          template:
+            uses: StepGroupProjectV1Remote
