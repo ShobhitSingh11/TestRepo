@@ -1,0 +1,21 @@
+template:
+  name: RunStepProjectV0Remote
+  identifier: RunStepProjectV0Remote
+  versionLabel: v0
+  type: Step
+  projectIdentifier: templatereconciliationdonotdelete
+  orgIdentifier: default
+  tags: {}
+  spec:
+    timeout: 10m
+    type: ShellScript
+    spec:
+      shell: Bash
+      executionTarget: {}
+      delegateSelectors: []
+      source:
+        type: Inline
+        spec:
+          script: echo "hehehehehe"
+      environmentVariables: []
+      outputVariables: []
