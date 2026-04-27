@@ -1,0 +1,11 @@
+template:
+  inputs:
+    goos:
+      type: string
+      required: true
+      default: linux
+  pipeline:
+    stages:
+        - id: stage
+          action:
+            uses: StageProjectV1Remote
