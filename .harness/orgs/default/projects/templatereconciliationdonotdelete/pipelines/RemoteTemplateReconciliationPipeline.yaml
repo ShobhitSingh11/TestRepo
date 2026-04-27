@@ -7,7 +7,122 @@ pipeline:
       type: string
       required: true
       default: linux
+    var1:
+      type: string
+      required: true
+      default: var1
+    var2:
+      type: string
+      required: true
+      default: var2
+    testing:
+      type: string
+      required: true
+      default: test1
+    anotherTesting:
+      type: string
+      required: true
+      default: test1
+    variable:
+      type: string
+      required: true
+      default: variable
+    testVar:
+      type: string
+      required: true
+      default: testVar
+    var:
+      type: string
+      required: true
+      default: hello
+    testing_1:
+      type: string
+      required: true
+      default: test1
+    anotherTesting_1:
+      type: string
+      required: true
+      default: test1
+    variable_1:
+      type: string
+      required: true
+      default: variable
+    testVar_1:
+      type: string
+      required: true
+      default: testVar
   template:
     uses: PipelineTemplateProjectV1Remote
     with:
       goos: "${{inputs.goos}}"
+      var1: "${{inputs.var1}}"
+      var2: "${{inputs.var2}}"
+      testing: "${{inputs.testing}}"
+      anotherTesting: "${{inputs.anotherTesting}}"
+      variable: "${{inputs.variable}}"
+      testVar: "${{inputs.testVar}}"
+      var: "${{inputs.var}}"
+      testing_1: "${{inputs.testing_1}}"
+      anotherTesting_1: "${{inputs.anotherTesting_1}}"
+      variable_1: "${{inputs.variable_1}}"
+      testVar_1: "${{inputs.testVar_1}}"
+      overlay:
+        pipeline:
+          stages:
+            - id: stage
+              action:
+                with:
+                  overlay:
+                    stage:
+                      timeout: <+input>
+                      steps:
+                        - run: <+input>
+                          id: runStep1
+                        - run:
+                            script: <+input>
+                          timeout: <+input>
+                          id: runStep2
+                        - id: StepGroup
+                          action:
+                            with:
+                              overlay:
+                                step:
+                                  group:
+                                    steps:
+                                      - run:
+                                          shell: <+input>
+                                        id: run
+                                      - id: runStep
+                                        action:
+                                          with:
+                                            overlay:
+                                              step:
+                                                run:
+                                                  shell: <+input>
+                                                  script: <+input>
+                                                  download: <+input>
+                                                timeout: <+input>
+                                      - run: <+input>
+                                        id: run1
+                                      - run:
+                                          script: <+input>
+                                        id: run2
+                                      - id: stepGroupNested
+                                        template:
+                                          with:
+                                            overlay:
+                                              step:
+                                                group:
+                                                  steps:
+                                                    - run: <+input>
+                                                      id: run8
+                                                    - id: runStepTemplate
+                                                      action:
+                                                        with:
+                                                          overlay:
+                                                            step:
+                                                              run:
+                                                                shell: <+input>
+                                                                script: <+input>
+                                                                download: <+input>
+                                                              timeout: <+input>
