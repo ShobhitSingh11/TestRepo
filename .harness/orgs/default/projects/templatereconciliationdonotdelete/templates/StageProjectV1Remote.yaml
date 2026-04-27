@@ -1,0 +1,23 @@
+template:
+  inputs:
+    var1:
+      type: string
+      required: true
+      default: var1
+    var2:
+      type: string
+      required: true
+      default: var2
+  stage:
+    timeout: <+input>
+    steps:
+      - run: echo "hello world"
+      - id: runStep1
+        run: <+input>
+      - id: runStep2
+        run:
+          script: <+input>
+        timeout: <+input>
+      - id: runStep
+        action:
+          uses: RunStepProjectV1Remote
