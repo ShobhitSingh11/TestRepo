@@ -1,3 +1,7 @@
 pipeline:
+  inputs:
+    test:
+      type: string
+      default: testValue
   template:
     uses: PipelineTemplateProjectV1Remote
