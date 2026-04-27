@@ -8,22 +8,6 @@ template:
       type: string
       required: true
       default: var2
-    testing:
-      type: string
-      required: true
-      default: test1
-    anotherTesting:
-      type: string
-      required: true
-      default: test1
-    variable:
-      type: string
-      required: true
-      default: variable
-    testVar:
-      type: string
-      required: true
-      default: testVar
   stage:
     timeout: <+input>
     steps:
@@ -38,10 +22,10 @@ template:
         action:
           uses: RunStepProjectV1Remote
           with:
-            testing: "${{inputs.testing}}"
-            anotherTesting: "${{inputs.anotherTesting}}"
-            variable: "${{inputs.variable}}"
-            testVar: "${{inputs.testVar}}"
+            testing: ${{inputs.testing}}
+            anotherTesting: ${{inputs.anotherTesting}}
+            variable: ${{inputs.variable}}
+            testVar: ${{inputs.testVar}}
             overlay:
               step:
                 run:
