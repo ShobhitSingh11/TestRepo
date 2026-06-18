@@ -4,4 +4,22 @@ service:
   tags: {}
   serviceDefinition:
     type: Kubernetes
-    spec: {}
+    spec:
+      manifests:
+        - manifest:
+            identifier: manifest1
+            spec:
+              store:
+                spec:
+                  connectorRef: org.shobhittestgithubconnector
+                  repoName: anshul-local-git-sync
+                  gitFetchType: Branch
+                  branch: main
+                  paths:
+                    - ng-automation/k8s/templates
+                type: Github
+              optionalValuesYaml: false
+              enableDeclarativeRollback: false
+              skipResourceVersioning: false
+            type: K8sManifest
+      artifacts: {}
