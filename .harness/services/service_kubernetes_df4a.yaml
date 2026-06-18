@@ -1,0 +1,7 @@
+service:
+  name: service_kubernetes_df4a
+  identifier: service_kubernetes_df4a
+  tags: {}
+  serviceDefinition:
+    type: Kubernetes
+    spec: {}
