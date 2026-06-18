@@ -1,0 +1,50 @@
+pipeline:
+  stages:
+    - name: Deploy K8s
+      id: deploy_k8s
+      steps:
+        - name: approval
+          approval:
+            with:
+              message: Please review execution
+              execution-details: false
+              auto-reject: false
+              user-groups:
+                - account._account_all_users
+              approvers-min-count: 1
+              block-executor: false
+              auto-approve: false
+              inputs: {}
+            uses: harness
+          id: approval
+        - name: Kubernetes Rolling Deploy
+          id: k8sRollingDeployStep
+          template:
+            uses: k8sRollingDeployStep
+        - name: fetch service variable
+          run:
+            script: echo "scvVar = ${{servicevariables.svcVar}}"
+            container:
+              image: library/nginx
+              connector: docker_ivan_b
+              pull: always
+          id: fetch_service_variable
+      service:
+        id: service_kubernetes_df4a
+      environment:
+        id: environment_env_gix_github
+        deploy-to: infrastructure_kubernetes_gitx_github
+      runtime:
+        kubernetes:
+          namespace: harness-delegate-ng
+          connector: account.cdautomationtest
+      on-failure:
+        errors: all
+        action: stage-rollback
+      rollback:
+        - group:
+            steps:
+              - name: Kubernetes Rolling Rollback
+                id: k8sRollingRollbackStep
+                template:
+                  uses: k8sRollingRollbackStep
